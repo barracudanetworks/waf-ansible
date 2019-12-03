@@ -1,0 +1,11 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_security_policies:
+      waf_host: 'waf1'
+      name: 'testsvc'
+      based_on: 'Create New'
+      state: 'present'
+    register: result
+  - debug: var=result

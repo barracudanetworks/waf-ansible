@@ -1,0 +1,13 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_services:
+      waf_host: 'waf1'
+      name: 'custom_secure_testsvc_1'
+      port: 80
+      service_type: 'Custom'
+      ip_address: '3.3.3.4'
+      state: 'present'
+    register: result
+  - debug: var=result

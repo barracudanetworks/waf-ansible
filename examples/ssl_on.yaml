@@ -1,0 +1,11 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_ssl:
+      waf_host: 'waf1'
+      service_name: 'secure_testsvc'
+      status: 'on'
+      enable_tls_1_1: 'yes'
+    register: result
+  - debug: var=result

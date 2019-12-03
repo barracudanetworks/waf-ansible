@@ -1,0 +1,11 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_configuration_checkpoints:
+      waf_host: 'waf1'
+      name: 'testconfig_new'
+      state: 'absent'
+      comment: 'test config'
+    register: result
+  - debug: var=result

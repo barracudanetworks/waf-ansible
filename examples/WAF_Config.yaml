@@ -1,0 +1,73 @@
+- name: "NGINX configuration"
+  hosts: nginx
+  roles: 
+    - nginxrole
+- name: "WAF Configuration"
+  hosts: localhost
+  tasks:
+  - name: "Creating the checkpoint called testconfig_new"
+    cudawaf_configuration_checkpoints:
+      waf_host: 'waf1'
+      name: 'testconfig_new1'
+      state: 'present'
+      comment: 'test config'
+    register: result
+    ignore_errors: True
+  - debug: var=result
+
+  - name: "Creating a self signed certificate"
+    cudawaf_self_signed_certificate:
+      waf_host: 'waf1'
+      name: 'testsvc_cert1'
+      allow_private_key_export: 'Yes'
+      city: 'san jose'
+      state: 'CA'
+      country_code: 'US'
+      common_name: 'testapp.cudademo.local'
+      organization_name: 'Barracuda Networks'
+      organizational_unit: 'PM'
+      status: 'present' 
+    register: result
+    ignore_errors: True
+  - debug: var=result
+  
+  - name: "Creating an Instant SSL Service" 
+    cudawaf_services:
+      waf_host: 'waf1'
+      name: 'secure_testsvc_1_instant'
+      port: 443
+      service_type: 'Instant SSL'
+      certificate: 'juiceshop1'
+      ip_address: '192.168.10.166'
+      secure_site_domain: ["*",]
+      state: 'present'
+    register: result
+    ignore_errors: True
+  - debug: var=result
+  
+  - name: "Creating the server for the instant ssl service"
+    when: result['failed'] != True
+    cudawaf_servers:
+      waf_host: 'waf1'
+      name: 'testsvr'
+      port: '80'
+      ip_address: '{{hostvars[groups["nginx"][0]].nginx_ip}}'
+      address_version: 'IPv4'
+      status: 'In Service'
+      state: 'present'
+      service_name: 'secure_testsvc_1_instant'
+      identifier: 'IP Address'
+    register: result
+    ignore_errors: True
+  - debug: var=result
+
+  - name: "Creating the checkpoint called testconfig_new2"
+    cudawaf_configuration_checkpoints:
+      waf_host: 'waf1'
+      name: 'testconfig_new2'
+      state: 'present'
+      comment: 'test config'
+    register: result
+  - debug: var=result
+
+

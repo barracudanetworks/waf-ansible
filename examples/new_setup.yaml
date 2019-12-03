@@ -1,0 +1,7 @@
+---
+- hosts: webservers
+  roles:
+    - nginx_role
+- host: wafs
+  roles:
+    - waf_role

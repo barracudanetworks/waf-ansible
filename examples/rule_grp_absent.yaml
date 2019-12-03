@@ -1,0 +1,14 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_content_rules:
+      waf_host: 'waf1'
+      name: 'testrg'
+      url_match: '/home/'
+      host_match: '*'
+      state: 'absent'
+      service_name: 'testsvc'
+      rule_group_name: 'testrg'
+    register: result
+  - debug: var=result

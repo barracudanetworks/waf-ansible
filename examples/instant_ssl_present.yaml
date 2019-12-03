@@ -1,0 +1,15 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_services:
+      waf_host: 'waf1'
+      name: 'secure_testsvc_1_instant'
+      port: 7443
+      service_type: 'Instant SSL'
+      certificate: 'juiceshop1'
+      ip_address: '10.2.3.4'
+      secure_site_domain: ["*",]
+      state: 'present'
+    register: result
+  - debug: var=result

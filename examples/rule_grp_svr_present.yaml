@@ -1,0 +1,19 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_content_rule_servers:
+      waf_host: 'waf1'
+      name: 'testsvr'
+      port: '80'
+      ip_address: '1.2.3.5'
+      address_version: 'IPv4'
+      comments: 'test server'
+      status: 'In Service'
+      state: 'present'
+      service_name: 'testsvc'
+      identifier: 'IP Address'
+      hostname: 'none'
+      rule_group_name: 'testrg'
+    register: result
+  - debug: var=result

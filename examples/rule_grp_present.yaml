@@ -1,0 +1,13 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_content_rules:
+      waf_host: 'waf1'
+      name: 'rule_grp'
+      url_match: '/index.html'
+      host_match: '*'
+      state: 'present'
+      service_name: 'testsvc'
+    register: result
+  - debug: var=result

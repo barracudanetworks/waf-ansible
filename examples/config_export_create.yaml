@@ -1,0 +1,10 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_export_configuration:
+      waf_host: 'waf1'
+      backup_type: 'partial'
+      name: 'testconfig_new'
+    register: result
+  - debug: var=result

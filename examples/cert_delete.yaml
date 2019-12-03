@@ -1,0 +1,17 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_self_signed_certificate:
+      waf_host: 'waf1'
+      name: 'testcert'
+      allow_private_key_export: 'Yes'
+      city: 'san jose'
+      state: 'CA'
+      country_code: 'US'
+      common_name: 'testapp.cudademo.local'
+      organization_name: 'Barracuda Networks'
+      organizational_unit: 'PM'
+      status: 'absent' 
+    register: result
+  - debug: var=result

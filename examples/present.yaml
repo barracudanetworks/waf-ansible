@@ -1,0 +1,20 @@
+- name: testSvc
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_services:
+      waf_host: 'waf1'
+      name: 'secure_testsvc_1'
+      app_id: 'testsvc_1'
+      port: 9443
+      vsite: default
+      group: default
+      service_type: 'HTTPS'
+      certificate: 'juiceshop1'
+      ip_address: '1.2.3.4'
+      mask: 255.255.255.255
+      enable_access_logs: 'Yes'
+      state: 'present'
+      session_timeout: '120'
+    register: result
+  - debug: var=result
