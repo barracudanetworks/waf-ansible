@@ -101,6 +101,17 @@ from ansible.module_utils.cudawaf_utils import token
 import json
 import requests
 
+def system_info(data):
+    logs=logger()
+    headers,waf_ip,waf_port,proto = token(data['waf_host'])
+    system_update_url = proto+waf_ip+":"+waf_port+"/restapi/v3.1/system"
+    r = requests.get(system_update_url, headers=headers, verify=False)
+    system_info = json.loads(r.text)
+    wan_params = system_info['data']['System']
+    system_ip = wan_params["WAN Configuration"]['ip-address']
+    return system_ip
+
+
 def result_func(r):
     message = json.loads(r.text)
     result = {"status_code": r.status_code, "msg": message['msg'] }
@@ -151,7 +162,11 @@ def waf_svc_update(data):
         update_config_payload = ansible_config
         #del update_config_payload['waf_host']
         logs.debug("***")
-        logs.debug(update_config_payload)
+        if update_config_payload['ip-address'] == 'system_ip':
+            update_config_payload['ip-address'] = system_info(data)
+        else:
+            pass
+
         put_url = proto+waf_ip+":"+waf_port+"/restapi/v3.1/services/"+data['name']
         r=requests.put(put_url, headers=headers, data=json.dumps(update_config_payload), verify=False)
         logs.debug(r.text)
@@ -205,7 +220,10 @@ def waf_svc_create(data):
         for key in delete_list:
             del service_data[key]
 
-        logs.debug(service_data)
+        if service_data['ip-address'] == 'system_ip':
+            service_data['ip-address'] = system_info(data)
+        else:
+            pass
 
         r=requests.post(service_url,data=json.dumps(service_data),headers=headers, verify=False)
         
