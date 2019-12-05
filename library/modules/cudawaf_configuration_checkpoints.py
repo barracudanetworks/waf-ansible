@@ -3,9 +3,52 @@
 # Copyright: (c) 2019 Aravindan Anandan (aravindan@barracuda.com)
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
+ANSIBLE_METADATA = {
+    'metadata_version': '1.1',
+    'status': ['preview'],
+    'supported_by': 'community'}
+
+DOCUMENTATION = '''
+---
+module: cudawaf_server
+author: "Aravindan Anandan"
+short_description: Manages JSON Configuration checkpoints for JSON file based configuration export on Barracuda WAF
+version_added: 2.10
+description:
+    - This module can be used for creating configuration checkpoints to create configuration diffs and export them in JSON format.
+    
+extends_documentation_fragment: 
+    - cudawaf
+notes:
+    - Requires Barracuda WAF RESTAPI v3.1
+options:
+  name:
+    description:
+      - Server name
+    type: str
+'''
+EXAMPLES = '''
+- name: Create testSvc service
+  hosts: localhost
+  tasks:
+  - name: test 
+    cudawaf_service:
+      name: 'testsvc'
+      port: 80
+      type: 'HTTP'
+      ip_address: '1.2.3.4'
+      state: 'present'
+    register: result
+  - debug: var=result
+'''
+
+RETURN = '''
+
+'''
+
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.cudawaf_utils import logger
-from ansible.module_utils.cudawaf_utils import token
+from ansible.module_utils.cudawaf.cudawaf import logger
+from ansible.module_utils.cudawaf.cudawaf import token
 import json
 import requests
 

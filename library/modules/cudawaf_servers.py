@@ -4,8 +4,8 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.cudawaf_utils import logger
-from ansible.module_utils.cudawaf_utils import token
+from ansible.module_utils.cudawaf.cudawaf import logger
+from ansible.module_utils.cudawaf.cudawaf import token
 import json
 import requests
 
@@ -16,7 +16,22 @@ ANSIBLE_METADATA = {
 }
 
 DOCUMENTATION = '''
-
+---
+module: cudawaf_server
+author: "Aravindan Anandan"
+short_description: Manages servers on Barracuda WAF
+version_added: 2.10
+description:
+    - THIS MODULE CAN BE USED TO CREATE, UPDATE OR DELETE SERVERS ON THE BARRACUDA WAF. WAF DEVICE CONF IS MAINTAINED AND THE JSON FILE IS READ FROM THE WORKING DIRECTORY.
+extends_documentation_fragment: 
+    - cudawaf
+notes:
+    - Requires Barracuda WAF RESTAPI v3.1
+options:
+  name:
+    description:
+      - Server name
+    type: str
 '''
 
 EXAMPLES = '''

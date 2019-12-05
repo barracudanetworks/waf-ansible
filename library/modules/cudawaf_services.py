@@ -3,81 +3,78 @@
 # Copyright: (c) 2019 Aravindan Anandan (aravindan@barracuda.com)
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
-    'supported_by': 'community'
-}
+    'supported_by': 'community'}
 
 DOCUMENTATION = '''
 ---
-module: cudawaf_service
+module: cudawaf_services
+author: "Aravindan Anandan"
 short_description: Manages services on Barracuda WAF
-version_added: "2.10"
+version_added: 2.10
 description:
-  - THIS MODULE CAN BE USED TO CREATE, UPDATE OR DELETE SERVICES ON THE BARRACUDA WAF. 
-  - WAF DEVICE CONF IS MAINTAINED AND THE JSON FILE IS READ FROM THE WORKING DIRECTORY.
-extends_documentation_fragment: "barracuda_networks"
+    - THIS MODULE CAN BE USED TO CREATE, UPDATE OR DELETE SERVICES ON THE BARRACUDA WAF. WAF DEVICE CONF IS MAINTAINED AND THE JSON FILE IS READ FROM THE WORKING DIRECTORY.
+extends_documentation_fragment: 
+    - cudawaf
+notes:
+    - Requires Barracuda WAF RESTAPI v3.1
 options:
   name:
     description:
       - Service name
-    type: 'str'
+    type: str
   port:
     description:
       - Specifies the listening port for the service.
-    type: 'str'
+    type: str
   address_version:
     description:
-      - Specifies the IP Protocol to be used with the service. Must be 'IPv4'.
-    type: 'str'
+      - Specifies the IP Protocol to be used with the service. Must be IPv4.
+    type: str
   status:
     description:
-      - Specifies if the service should be enabled 'On' or disabled 'Off'.
-    type: 'str'
+      - Specifies if the service should be enabled On or disabled Off.
+    type: str
   comments:
     description:
       - Specifies the description for the service.
-    type: 'str'
+    type: str
   enable_access_logs:
     description:
-      - Specifies if the service should be created with the access logs enabled i.e 'Yes' or disabled i.e 'No'.
-    type: 'str'
+      - Specifies if the service should be created with the access logs enabled i.e Yes or disabled i.e No.
+    type: str
   session_timeout:
     description:
       - Specifies the session idle timeout. Must be a valid number or 0.
-    type: 'int'
+    type: int
   app_id:
     description:
       - Specifies the app-id for the service.
-    type: 'str'
+    type: str
   group:
     description:
       - Specifies the service group in which the Service is to be created. Must be a group present in the WAF.
-    type: 'str'
+    type: str
   vsite:
     description:
       - Specifies the vsite object in which the Service will be created.
-    type: 'str'
+    type: str
   dps_enabled:
     description:
-      - Specifies if the service should have Advanced DdoS Prevention service enabled i.e "Yes" or disabled i.e "No".
-    type: 'str'
+      - Specifies if the service should have Advanced DdoS Prevention service enabled i.e Yes or disabled i.e No.
+    type: str
   ip_address:
     description:
       - Specifies the listening ip address for the service.
-    type: 'str'
+    type: str
   mask:
     description:
       - Specifies the subnet mask for the service.
-    type: 'str'
-  type: dict     
-author: "Barracuda Support"
-notes:
-    - Other things consumers of your module should know.
-requirements:
-    - list of required things.
-    - requests
+    type: str
+
 '''
 
 EXAMPLES = '''
@@ -95,9 +92,13 @@ EXAMPLES = '''
   - debug: var=result
 '''
 
+RETURN = '''
+
+'''
+
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.cudawaf_utils import logger
-from ansible.module_utils.cudawaf_utils import token
+from ansible.module_utils.cudawaf.cudawaf import logger
+from ansible.module_utils.cudawaf.cudawaf import token
 import json
 import requests
 
