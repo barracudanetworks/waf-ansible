@@ -1,0 +1,19 @@
+{
+"waf1":
+    {
+    "waf_ip":"10.36.73.158",
+    "waf_port":"443",
+    "waf_admin":"admin",
+    "waf_password":"admin",
+    "secure": "yes"
+    },
+"waf2":
+    {
+    "waf_ip":"18.144.69.231",
+    "waf_port":"8443",
+    "waf_admin":"admin",
+    "waf_password":"P@$$w0rd@123",
+    "secure": "yes"
+    }
+}
+

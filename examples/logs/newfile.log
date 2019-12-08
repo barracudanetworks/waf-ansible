@@ -1,0 +1,16 @@
+2019-12-05 16:32:21,645 HTTPS Protocol will be used for all transactions
+2019-12-05 16:32:21,645 Configure the secure attribute as 'yes' or 'no'. Defaulting to HTTPS
+2019-12-05 16:32:21,645 waf host is 10.36.73.158
+2019-12-05 16:32:21,651 Starting new HTTPS connection (1): 10.36.73.158:443
+2019-12-05 16:32:21,727 https://10.36.73.158:443 "POST /restapi/v3/login HTTP/1.1" 200 None
+2019-12-05 16:32:21,731 Starting new HTTPS connection (1): 10.36.73.158:443
+2019-12-05 16:32:21,978 https://10.36.73.158:443 "GET /restapi/v3.1/services/secure_testsvc_1 HTTP/1.1" 200 None
+2019-12-05 16:32:21,980 HTTPS Protocol will be used for all transactions
+2019-12-05 16:32:21,980 Configure the secure attribute as 'yes' or 'no'. Defaulting to HTTPS
+2019-12-05 16:32:21,980 waf host is 10.36.73.158
+2019-12-05 16:32:21,984 Starting new HTTPS connection (1): 10.36.73.158:443
+2019-12-05 16:32:22,088 https://10.36.73.158:443 "POST /restapi/v3/login HTTP/1.1" 200 None
+2019-12-05 16:32:22,092 Starting new HTTPS connection (1): 10.36.73.158:443
+2019-12-05 16:32:22,310 https://10.36.73.158:443 "GET /restapi/v3.1/services/secure_testsvc_1 HTTP/1.1" 200 None
+2019-12-05 16:32:22,311 {'app-id': 'secure_testsvc_1', 'comments': 'Created by Ansible Playbook', 'enable-access-logs': 'Yes', 'ip-address': '1.2.3.4', 'mask': '255.255.255.255', 'port': '9443', 'session-timeout': '60', 'status': 'On', 'secure-site-domain': []}
+2019-12-05 16:32:22,311 ['secure-site-domain']

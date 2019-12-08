@@ -137,7 +137,7 @@ def waf_svc_update(data):
         existing_config["secure-site-domain"] = config['data'][data['name']]['Instant SSL']['secure-site-domain']
     else:
         pass
-    logs.debug(existing_config)
+    #logs.debug(existing_config)
     ansible_config = {
             "app-id": data['app_id'],
             "comments": data['comments'],
@@ -153,13 +153,16 @@ def waf_svc_update(data):
         result={"msg": "existing configuration and ansible configuration are same. No changes made"}
         return False, False, result
     else:
+        logs.debug("hello")
         update_config_payload = dict()
         update_config_payload['waf_host'] = data['waf_host']
         delete_list=[key for key,value in ansible_config.items() if value is None]
+        logs.debug("****")
         logs.debug(delete_list)
         for key in delete_list:
             del ansible_config[key]
-        del ansible_config['secure-site-domain']
+        logs.debug(ansible_config.keys())
+        #del ansible_config['secure-site-domain']
         update_config_payload = ansible_config
         #del update_config_payload['waf_host']
         logs.debug("***")
