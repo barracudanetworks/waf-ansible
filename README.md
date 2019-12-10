@@ -42,21 +42,16 @@ Place a file called wafcreds.json in the location from where the playbook will b
 ```
 The wafcreds.json can have multiple waf entries. This is useful if you would like to configure multiple waf instances at the same time.
 Note: 
-	1. Please make sure that the wafcreds.json is a valid JSON document.
-	2. No additional keys other than specified in the sample above are supported.
-	3. All the keys in the sample are mandatory keys in wafcreds.json
+	a. Please make sure that the wafcreds.json is a valid JSON document.
+	b. No additional keys other than specified in the sample above are supported.
+	c. All the keys in the sample are mandatory keys in wafcreds.json
 
 3. Create a "logs" directory in the location from where the playbook will be run, for debugging the underlying API calls.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Tested with Python 3. 
 
 Example Playbook
 ----------------
@@ -67,6 +62,8 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: username.rolename, x: 42 }
 
+Examples for the ansible playbooks for Barracuda WAF can be found in the examples directory.
+
 License
 -------
 
@@ -75,4 +72,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Aravindan Anandan (aravindan@barracuda.com)
