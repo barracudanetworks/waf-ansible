@@ -8,7 +8,8 @@ Requirements
 ------------
 
 Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-1. Modules to be installed:
+1. Modules to be installed i.e the requirements.txt file:
+	```
 	ansible==2.9.2
 	certifi==2019.11.28
 	cffi==1.13.2
@@ -24,23 +25,26 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 	requests==2.22.0
 	six==1.13.0
 	urllib3==1.25.7
+	```
 To install all these modules, the best option would be to copy the module names into a requirements.txt file. And then run pip install -requirement requirements.txt.
 
 2. Create a wafcreds.json file:
 Place a file called wafcreds.json in the location from where the playbook will be run. Format should be as follows:
-```
-{
-"waf1":
-    {
-    "waf_ip":"<waf ip address for management>",
-    "waf_port":"< management port number>",
-    "waf_admin":"<api-user>",
-    "waf_password":"<api-password>",
-    "secure": "no"
-    }
-}
-```
+	```
+	{
+	"waf1":
+		{
+		"waf_ip":"<waf ip address for management>",
+		"waf_port":"< management port number>",
+		"waf_admin":"<api-user>",
+		"waf_password":"<api-password>",
+		"secure": "no"
+		}
+	}
+	```
+
 The wafcreds.json can have multiple waf entries. This is useful if you would like to configure multiple waf instances at the same time.
+
 Note: 
 	a. Please make sure that the wafcreds.json is a valid JSON document.
 	b. No additional keys other than specified in the sample above are supported.
