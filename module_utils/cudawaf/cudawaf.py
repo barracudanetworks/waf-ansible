@@ -19,7 +19,13 @@ def logger():
         logger.setLevel(logging.DEBUG)
         return logger
     else:
-        pass
+        logging.basicConfig(filename="tmp/newfile.log", 
+                        format='%(asctime)s %(message)s', 
+                        filemode='w')
+        logger=logging.getLogger()
+        logger.setLevel(logging.DEBUG)
+        return logger
+        
 
 def token(waf_host):
 
