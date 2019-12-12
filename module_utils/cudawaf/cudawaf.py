@@ -27,7 +27,7 @@ def logger():
 def token(waf_host):
 
     logs=logger()
-    waf_info=open('wafcreds.json','r')
+    waf_info=open('/etc/wafcreds.json','r')
     waf_info_dict=json.load(waf_info)
     waf=(waf_info_dict[waf_host])
         
