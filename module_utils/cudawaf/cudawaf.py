@@ -10,12 +10,16 @@ import logging
 
 
 def logger():
-    logging.basicConfig(filename="logs/newfile.log", 
+    l=os.listdir()
+    if 'logs' in l:
+        logging.basicConfig(filename="logs/newfile.log", 
                         format='%(asctime)s %(message)s', 
                         filemode='w')
-    logger=logging.getLogger()
-    logger.setLevel(logging.DEBUG)
-    return logger
+        logger=logging.getLogger()
+        logger.setLevel(logging.DEBUG)
+        return logger
+    else:
+        pass
 
 def token(waf_host):
 
