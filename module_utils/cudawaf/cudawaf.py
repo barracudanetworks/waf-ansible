@@ -19,7 +19,7 @@ def logger():
         logger.setLevel(logging.DEBUG)
         return logger
     else:
-        logging.basicConfig(filename="tmp/newfile.log", 
+        logging.basicConfig(filename="/tmp/newfile.log", 
                         format='%(asctime)s %(message)s', 
                         filemode='w')
         logger=logging.getLogger()
