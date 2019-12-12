@@ -12,20 +12,17 @@ import logging
 def logger():
     l=os.listdir()
     if 'logs' in l:
-        logging.basicConfig(filename="logs/newfile.log", 
-                        format='%(asctime)s %(message)s', 
-                        filemode='w')
-        logger=logging.getLogger()
-        logger.setLevel(logging.DEBUG)
-        return logger
+        directory ="logs/newfile.log"
     else:
-        logging.basicConfig(filename="/tmp/newfile.log", 
+        directory="/tmp/newfile.log"
+    logging.basicConfig(filename=directory, 
                         format='%(asctime)s %(message)s', 
                         filemode='w')
-        logger=logging.getLogger()
-        logger.setLevel(logging.DEBUG)
-        return logger
-        
+    logger=logging.getLogger()
+    logger.setLevel(logging.DEBUG)
+return logger
+    
+
 
 def token(waf_host):
 
