@@ -22,8 +22,8 @@ This command will check for the role barracudanetworks_waf.waf_ansible
 
 In the roles/<role-name>/tasks directory, there should be a main.yml file
 
-For example:
-# sample main.yml file, to crete a service
+### Sample main.yml file.
+
   - name: test 
     cudawaf_services:
       waf_host: 'waf1'
