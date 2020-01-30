@@ -28,7 +28,7 @@ Requirements
 To install all these modules, the best option would be to copy the module names into a requirements.txt file. And then run pip install -requirement requirements.txt.
 
 2. Create a wafcreds.json file:
-Place a file called wafcreds.json in the location from where the playbook will be run. Format should be as follows:
+Place a file called wafcreds.json in the /etc/ location of your filesystem. Format should be as follows:
 	```
 	{
 	"waf1":
