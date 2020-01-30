@@ -23,7 +23,7 @@ This command will check for the role barracudanetworks_waf.waf_ansible
 In the roles/<role-name>/tasks directory, there should be a main.yml file
 
 ### Sample main.yml file.
-
+```
   - name: test 
     cudawaf_services:
       waf_host: 'waf1'
@@ -41,6 +41,7 @@ In the roles/<role-name>/tasks directory, there should be a main.yml file
       session_timeout: '120'
     register: result
   - debug: var=result
+  ```
 
 For more documentation on roles and their usage visit:
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
