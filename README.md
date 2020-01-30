@@ -59,11 +59,6 @@ Tested with Python 3.
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
 
 Examples for the ansible playbooks for Barracuda WAF can be found in the examples directory.
 
