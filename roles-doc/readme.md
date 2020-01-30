@@ -18,11 +18,12 @@ Run the ansible-playbook
 ansible-playbook test.yml
 
 This command will check for the role barracudanetworks_waf.waf_ansible 
-/<home_directory>/roles or /<home_directory>/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+/<home_directory>/roles or /<home_directory>/.ansible/roles or /usr/share/ansible/roles or /etc/ansible/roles
 
 In the roles/<role-name>/tasks directory, there should be a main.yml file
 
 ### Sample main.yml file.
+
 ```
   - name: test 
     cudawaf_services:
@@ -41,7 +42,8 @@ In the roles/<role-name>/tasks directory, there should be a main.yml file
       session_timeout: '120'
     register: result
   - debug: var=result
-  ```
+
+```
 
 For more documentation on roles and their usage visit:
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
