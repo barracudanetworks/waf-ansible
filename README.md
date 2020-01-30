@@ -58,9 +58,11 @@ Tested with Python 3.
 
 Example Playbook
 ----------------
-
-
 Examples for the ansible playbooks for Barracuda WAF can be found in the examples directory.
+
+Roles Documentation
+-------------------
+Check the roles-doc/readme file.
 
 License
 -------
