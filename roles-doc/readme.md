@@ -42,6 +42,8 @@ Structure of the installed role:
 └── vars
     └── main.yml
 ```
+Tasks – Contains the main list of tasks that are to be executed by the role. It contains the main.yml file for that particular role. Every task directory includes a main.yml file where the code for the role is written.
+
 
 In the working environment, create a *test.yml* with the following content:
 
