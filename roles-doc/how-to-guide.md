@@ -18,6 +18,7 @@ Steps
 3. Activate the workspace
 
 ```cd workspace```
+
 ```source bin/activate```
 
 4. Install the required modules and python packages
