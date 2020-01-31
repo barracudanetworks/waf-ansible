@@ -1,10 +1,12 @@
 ### Roles Documentation
 
 To install the role:
+--------------------
 
-ansible-galaxy install barracudanetworks_waf.waf_ansible
+```ansible-galaxy install barracudanetworks_waf.waf_ansible```
 
 Structure of the installed role:
+--------------------------------
 
 ```
 ├── README.md
@@ -41,7 +43,7 @@ Structure of the installed role:
     └── main.yml
 ```
 
-In the working environment, create a test.yml with the following content:
+In the working environment, create a *test.yml* with the following content:
 
 ```
 ---
@@ -51,6 +53,7 @@ In the working environment, create a test.yml with the following content:
 ```
 
 Run the ansible-playbook
+------------------------
 
 ```
 ansible-playbook test.yml
@@ -67,7 +70,7 @@ This command will check for the role barracudanetworks_waf.waf_ansible in the fo
 
 In the *roles/role-name/tasks/* directory, there should be a *main.yml* file
 
-### Sample main.yml file.
+**Sample main.yml file.**
 
 ```
   - name: test 
@@ -91,5 +94,6 @@ In the *roles/role-name/tasks/* directory, there should be a *main.yml* file
 ```
 
 For more documentation on roles and their usage visit:
+
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
 
