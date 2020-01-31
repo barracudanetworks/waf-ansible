@@ -15,12 +15,20 @@ In the working environment, create a test.yml with the following content:
 
 Run the ansible-playbook
 
+```
 ansible-playbook test.yml
+```
 
-This command will check for the role barracudanetworks_waf.waf_ansible 
-/<home_directory>/roles or /<home_directory>/.ansible/roles or /usr/share/ansible/roles or /etc/ansible/roles
+This command will check for the role barracudanetworks_waf.waf_ansible in the following directories:
 
-In the roles/<role-name>/tasks directory, there should be a main.yml file
+```
+1. /home-directory/roles or 
+2. /home-directory/.ansible/roles
+3. /usr/share/ansible/roles
+4. /etc/ansible/roles
+```
+
+In the *roles/role-name/tasks/* directory, there should be a *main.yml* file
 
 ### Sample main.yml file.
 
