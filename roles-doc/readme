@@ -1,0 +1,73 @@
+### Roles Documentation
+
+To install the role:
+
+ansible-galaxy install barracudanetworks_waf.waf_ansible
+
+Structure of the installed role:
+
+```
+├── README.md
+├── defaults
+│   └── main.yml
+├── examples
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── module_utils
+│   └── cudawaf
+│       ├── __init__.py
+│       └── cudawaf.py
+├── roles-doc
+│   └── readme.md
+├── tasks
+│   └── main.yml
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+```
+
+In the working environment, create a test.yml with the following content:
+
+```
+---
+- hosts: localhost
+  roles:
+    - barracudanetworks_waf.waf_ansible 
+```
+
+Run the ansible-playbook
+
+ansible-playbook test.yml
+
+This command will check for the role barracudanetworks_waf.waf_ansible 
+/<home_directory>/roles or /<home_directory>/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+
+In the roles/<role-name>/tasks directory, there should be a main.yml file
+
+For example:
+# sample main.yml file, to crete a service
+  - name: test 
+    cudawaf_services:
+      waf_host: 'waf1'
+      name: 'secure_testsvc_1'
+      app_id: 'testsvc_1'
+      port: 9443
+      vsite: default
+      group: default
+      service_type: 'HTTPS'
+      certificate: 'juiceshop1'
+      ip_address: '1.2.3.4'
+      mask: 255.255.255.255
+      enable_access_logs: 'Yes'
+      state: 'present'
+      session_timeout: '120'
+    register: result
+  - debug: var=result
+
+For more documentation on roles and their usage visit:
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
+
