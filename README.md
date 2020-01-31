@@ -65,6 +65,8 @@ Notes
 
 3. [Optional]Create a "logs" directory in the location from where the playbook will be run, for debugging the underlying API calls.
 
+4. Barracuda WAF Firmware v10.0 or higher.
+
 Dependencies
 ------------
 1. **Python3**
