@@ -119,5 +119,5 @@ EOF
 
 10. Result
 
-The above command should invoke the file ```*/home/ubuntu/.ansible/roles/barracudanetworks_waf.waf_ansible/tasks/main.yml*``` and create the configuration mentioned in that file. Login to the target Barracuda WAF and check if the configuration is successfully completed.
+The above command should invoke the file ```/home/ubuntu/.ansible/roles/barracudanetworks_waf.waf_ansible/tasks/main.yml``` and create the configuration mentioned in that file. Login to the target Barracuda WAF and check if the configuration is successfully completed.
 
