@@ -3,7 +3,7 @@
 Introduction
 ------------
 
-This guide provides the steps for installing and using this Ansible Role on an Ubuntu OS (running 16.04 or higher) ans assumes that you are logged in as user 'ubuntu'
+This guide provides the steps for installing and using this Ansible Role on an Ubuntu OS (running 16.04 or higher) and assumes that you are logged in as user 'ubuntu'
 
 Steps
 -----
