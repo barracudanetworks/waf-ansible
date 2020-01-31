@@ -2,6 +2,18 @@ Introduction
 ------------
 This role can be used to configure and manage Barracuda WAF Instances. One or more Barracuda WAF instances can be managed at the same time.
 
+The role can be used to configure and manage the following objects in the Barracuda WAF:
+
+1. Virtual Services
+2. Virtual Servers
+3. Rule Groups
+4. Rule Group Servers
+5. Creating self signed certificates
+6. Service SSL configuration
+7. Configuration Checkpoints
+8. Exporting JSON Configuration
+9. Security Policies
+
 Requirements
 ------------
 
