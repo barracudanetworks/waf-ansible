@@ -45,7 +45,7 @@ EOF
 
 ```ansible-galaxy install barracudanetworks_waf.waf_ansible```
 
-This role will be installed under ``` */home/ubuntu/.ansible/roles/* ```
+This role will be installed under ```/home/ubuntu/.ansible/roles/```
 
 6. Create the *wafcreds.json*
 
