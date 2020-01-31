@@ -10,9 +10,20 @@ Structure of the installed role:
 ├── README.md
 ├── defaults
 │   └── main.yml
-├── examples
+├── examples [20 entries exceeds filelimit, not opening dir]
 ├── handlers
 │   └── main.yml
+├── library
+│   ├── __init__.py
+│   ├── cudawaf_configuration_checkpoints.py
+│   ├── cudawaf_content_rule_servers.py
+│   ├── cudawaf_content_rules.py
+│   ├── cudawaf_export_configuration.py
+│   ├── cudawaf_security_policies.py
+│   ├── cudawaf_self_signed_certificate.py
+│   ├── cudawaf_servers.py
+│   ├── cudawaf_services.py
+│   └── cudawaf_ssl.py
 ├── meta
 │   └── main.yml
 ├── module_utils
