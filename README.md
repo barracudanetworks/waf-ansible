@@ -42,27 +42,30 @@ Place a file called wafcreds.json in the /etc/ location of your filesystem. Form
 	}
 	```
 
-The wafcreds.json can have multiple waf entries. This is useful if you would like to configure multiple waf instances at the same time.
+The **wafcreds.json** can have multiple waf entries. This is useful if you would like to configure multiple waf instances at the same time.
 
-	Note: 
+Notes
+-----
+
+```
 	a. Please make sure that the wafcreds.json is a valid/syntactically correct JSON document.
 	b. No additional JSON keys other than specified in the sample wafcreds.json file are supported.
 	c. All the keys in the above example are mandatory keys in the wafcreds.json
+```
 
 3. [Optional]Create a "logs" directory in the location from where the playbook will be run, for debugging the underlying API calls.
 
 Dependencies
 ------------
-
-Tested with Python 3. 
+1. **Python3**
 
 Example Playbook
 ----------------
-Examples for the ansible playbooks for Barracuda WAF can be found in the examples directory.
+Examples for the ansible playbooks for Barracuda WAF can be found in the **examples** directory.
 
 Roles Documentation
 -------------------
-Check the roles-doc/readme file.
+*https://github.com/barracudanetworks/waf-ansible/blob/master/roles-doc/readme.md*
 
 License
 -------
