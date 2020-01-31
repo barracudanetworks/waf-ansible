@@ -25,7 +25,7 @@ Requirements
 	six==1.13.0
 	urllib3==1.25.7
 	```
-To install all these modules, the best option would be to copy the module names into a requirements.txt file. And then run pip install -requirement requirements.txt.
+To install all these modules, the best option would be to copy the module names into a requirements.txt file. And then run pip3 install -requirement requirements.txt.
 
 2. Create a wafcreds.json file:
 Place a file called wafcreds.json in the /etc/ location of your filesystem. Format should be as follows:
@@ -45,11 +45,11 @@ Place a file called wafcreds.json in the /etc/ location of your filesystem. Form
 The wafcreds.json can have multiple waf entries. This is useful if you would like to configure multiple waf instances at the same time.
 
 	Note: 
-	a. Please make sure that the wafcreds.json is a valid JSON document.
-	b. No additional keys other than specified in the sample above are supported.
-	c. All the keys in the sample are mandatory keys in wafcreds.json
+	a. Please make sure that the wafcreds.json is a valid/syntactically correct JSON document.
+	b. No additional JSON keys other than specified in the sample wafcreds.json file are supported.
+	c. All the keys in the above example are mandatory keys in the wafcreds.json
 
-3. Create a "logs" directory in the location from where the playbook will be run, for debugging the underlying API calls.
+3. [Optional]Create a "logs" directory in the location from where the playbook will be run, for debugging the underlying API calls.
 
 Dependencies
 ------------
