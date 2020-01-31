@@ -66,6 +66,7 @@ Examples for the ansible playbooks for Barracuda WAF can be found in the **examp
 Roles Documentation
 -------------------
 Readme: *https://github.com/barracudanetworks/waf-ansible/blob/master/roles-doc/readme.md*
+
 How-to-guide: *https://github.com/barracudanetworks/waf-ansible/blob/master/roles-doc/how-to-guide.md* 
 
 License
