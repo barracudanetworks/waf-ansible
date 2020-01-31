@@ -1,8 +1,6 @@
-Role Name
-=========
-
-This role can be used to configure and manage Barracuda WAF Instances. One or more Barracuda WAF instances can be managed at the same time..
-
+Introduction
+------------
+This role can be used to configure and manage Barracuda WAF Instances. One or more Barracuda WAF instances can be managed at the same time.
 
 Requirements
 ------------
