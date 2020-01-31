@@ -4,6 +4,32 @@ To install the role:
 
 ansible-galaxy install barracudanetworks_waf.waf_ansible
 
+Structure of the installed role:
+
+```
+├── README.md
+├── defaults
+│   └── main.yml
+├── examples
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── module_utils
+│   └── cudawaf
+│       ├── __init__.py
+│       └── cudawaf.py
+├── roles-doc
+│   └── readme.md
+├── tasks
+│   └── main.yml
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+```
+
 In the working environment, create a test.yml with the following content:
 
 ```
