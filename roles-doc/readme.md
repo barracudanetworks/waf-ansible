@@ -15,15 +15,24 @@ In the working environment, create a test.yml with the following content:
 
 Run the ansible-playbook
 
+```
 ansible-playbook test.yml
+```
 
-This command will check for the role barracudanetworks_waf.waf_ansible 
-/<home_directory>/roles or /<home_directory>/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+This command will check for the role barracudanetworks_waf.waf_ansible in the following directories:
 
-In the roles/<role-name>/tasks directory, there should be a main.yml file
+```
+1. /home-directory/roles or 
+2. /home-directory/.ansible/roles
+3. /usr/share/ansible/roles
+4. /etc/ansible/roles
+```
 
-For example:
-# sample main.yml file, to crete a service
+In the *roles/role-name/tasks/* directory, there should be a *main.yml* file
+
+### Sample main.yml file.
+
+```
   - name: test 
     cudawaf_services:
       waf_host: 'waf1'
@@ -41,6 +50,8 @@ For example:
       session_timeout: '120'
     register: result
   - debug: var=result
+
+```
 
 For more documentation on roles and their usage visit:
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
