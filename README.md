@@ -35,7 +35,7 @@ Requirements
 	six==1.13.0
 	urllib3==1.25.7
 	```
-To install all these modules, the best option would be to copy the module names into a requirements.txt file. And then run pip3 install -requirement requirements.txt.
+To install all these modules, the best option would be to copy the module names into a requirements.txt file. And then run ```pip3 install -requirement requirements.txt```.
 
 2. Create a wafcreds.json file:
 Place a file called wafcreds.json in the /etc/ location of your filesystem. Format should be as follows:
