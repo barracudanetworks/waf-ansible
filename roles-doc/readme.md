@@ -12,7 +12,7 @@ Structure of the installed role:
 ├── README.md
 ├── defaults
 │   └── main.yml
-├── examples [20 entries exceeds filelimit, not opening dir]
+├── examples
 ├── handlers
 │   └── main.yml
 ├── library
