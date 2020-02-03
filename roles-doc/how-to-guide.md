@@ -116,7 +116,7 @@ EOF
 ```
 9. Run the playbook
 
-```ansible-playbook install waf_config.yml```
+```ansible-playbook waf_config.yml```
 
 10. Result
 
