@@ -51,60 +51,6 @@ from ansible.module_utils.cudawaf.cudawaf import token
 import json
 import requests
 
-ANSIBLE_METADATA = {
-    'metadata_version': '2.7.1',
-    'status': ['preview'],
-    'supported_by': 'community'
-}
-
-DOCUMENTATION = '''
-
-'''
-
-EXAMPLES = '''
-# Server Creation:
-- name: testSvc
-  hosts: localhost
-  tasks:
-  - name: test 
-    cudawaf_rule_group_server:
-      waf_host: 'waf1'
-      name: 'testsvr'
-      port: '80'
-      ip_address: '1.2.3.5'
-      address_version: 'IPv4'
-      comments: 'test server'
-      status: 'In Service'
-      state: 'present'
-      service_name: 'testsvc'
-      identifier: 'IP Address'
-      hostname: 'none'
-      rule_group_name: 'testrg'
-    register: result
-  - debug: var=result
-
-# Server deletion
-
-- name: testSvc
-  hosts: localhost
-  tasks:
-  - name: test 
-    cudawaf_rule_group_server:
-      waf_host: 'waf1'
-      name: 'testsvr'
-      port: '80'
-      ip_address: '1.2.3.5'
-      address_version: 'IPv4'
-      comments: 'test server'
-      status: 'In Service'
-      state: 'absent'
-      service_name: 'testsvc'
-      identifier: 'IP Address'
-      hostname: 'none'
-      rule_group_name: 'testrg'
-    register: result
-  - debug: var=result
-'''
 def svr_update(data):
     headers,waf_ip,waf_port,proto = token(data['waf_host'])
     svr_name=data['name']
@@ -139,7 +85,7 @@ def svr_create(data):
     svr_name=data['name']
     svc_name=data['service_name']
     
-    svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers"
+    svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
     
     svr_info = requests.get(svr_url,headers=headers,verify=False)
     del data['waf_host']
