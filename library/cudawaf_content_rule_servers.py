@@ -139,7 +139,7 @@ def svr_create(data):
     svr_name=data['name']
     svc_name=data['service_name']
     
-    svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
+    svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers"
     
     svr_info = requests.get(svr_url,headers=headers,verify=False)
     del data['waf_host']
