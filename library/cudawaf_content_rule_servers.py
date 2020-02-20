@@ -52,6 +52,7 @@ import json
 import requests
 
 def svr_update(data):
+    logs=logger()
     headers,waf_ip,waf_port,proto = token(data['waf_host'])
     svr_name=data['name']
     svc_name=data['service_name']
@@ -81,6 +82,7 @@ def svr_update(data):
         return True, False, result
 
 def svr_create(data):
+    logs=logger()
     headers,waf_ip,waf_port,proto = token(data['waf_host'])
     svr_name=data['name']
     svc_name=data['service_name']
