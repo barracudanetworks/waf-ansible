@@ -90,9 +90,9 @@ def svr_create(data):
     svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3.1/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
     
     svr_info = requests.get(svr_url,headers=headers,verify=False)
-    del data['waf_host']
-    del data['state']
-    del data['service_name']
+    #del data['waf_host']
+    #del data['state']
+    #del data['service_name']
 
     if svr_info.status_code == 200:
         #check for server parameters to figure if PUT is required
