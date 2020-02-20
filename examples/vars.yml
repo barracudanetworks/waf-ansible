@@ -1,0 +1,27 @@
+  - name: "Content Rule" 
+    cudawaf_content_rules:
+      waf_host: 'waf1'
+      name: "{{ rule_group_name }}"
+      url_match: '/*'
+      host_match: "{{ host }}"
+      state: 'present'
+      service_name: "{{ service_name }}"
+    register: result
+  - debug: var=result
+
+  - name: "Content Rule Server"
+    cudawaf_content_rule_servers:
+      waf_host: 'waf1'
+      name: "{{ server_name }}"
+      port: "{{ server_port }}"
+      ip_address: "{{ server_ip }}"
+      address_version: 'IPv4'
+      comments: 'v1 server'
+      status: 'In Service'
+      state: 'present'
+      service_name: "{{ service_name }}"
+      identifier: 'IP Address'
+      hostname: 'none'
+      rule_group_name: "{{ rule_group_name }}"
+    register: result
+  - debug: var=result

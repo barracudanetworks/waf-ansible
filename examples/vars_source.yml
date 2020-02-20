@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  vars:
+    host: 'badstore-v1.cuda.local'
+    server_name: 'v1_server'
+    server_port: '80'
+    server_ip: '13.56.229.226'
+    service_name: 'Badstore'
+    rule_group_name: 'rule_group_1'
+  roles:
+    - barracudanetworks_waf.waf_ansible
