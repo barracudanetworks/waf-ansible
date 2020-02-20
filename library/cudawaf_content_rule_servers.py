@@ -56,7 +56,7 @@ def svr_update(data):
     headers,waf_ip,waf_port,proto = token(data['waf_host'])
     svr_name=data['name']
     svc_name=data['service_name']
-    svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
+    svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3.1/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
     
     update_payload = {
     "hostname": data['hostname'],
@@ -87,7 +87,7 @@ def svr_create(data):
     svr_name=data['name']
     svc_name=data['service_name']
     
-    svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
+    svr_url=proto+waf_ip+":"+waf_port+"/restapi/v3.1/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
     
     svr_info = requests.get(svr_url,headers=headers,verify=False)
     del data['waf_host']
@@ -114,7 +114,7 @@ def svr_create(data):
         if data['identifier'] != "Hostname":
             del svr_payload['hostname']
 
-        svr_common_url=proto+waf_ip+":"+waf_port+"/restapi/v3/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers"
+        svr_common_url=proto+waf_ip+":"+waf_port+"/restapi/v3.1/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers"
         r = requests.post(svr_common_url, data=json.dumps(svr_payload), headers=headers, verify=False)
 
         if r.status_code == 201:
@@ -127,7 +127,7 @@ def svr_create(data):
 def svr_delete(data=None):
     
     headers,waf_ip,waf_port,proto = token(data['waf_host'])
-    svr_del_url = proto+waf_ip+":"+waf_port+"/restapi/v3/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
+    svr_del_url = proto+waf_ip+":"+waf_port+"/restapi/v3.1/services/"+svc_name+"/content-rules/"+data['rule_group_name']+"/content-rule-servers/"+svr_name
     r = requests.delete(svr_del_url, headers=headers, verify=False)
     if r.status_code == 200:
         result={"status_code":r.status_code, "msg": r.text}
